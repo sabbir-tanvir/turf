@@ -252,11 +252,11 @@ const TurfRightPanel: React.FC<{
   subtitle?: string
 }> = ({ title = 'Turf Preview', subtitle = 'Interactive 3D mini turf (right panel)' }) => {
   return (
-    <div className="w-full">
+    <div className=" container mx-auto px-6 py-12">
       {/* Two-column layout: content left, 3D preview right */}
-      <div className="flex w-full gap-6 items-stretch">
+      <div className="flex w-full gap-6 space-between ">
         {/* LEFT: Your page content */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 max-w-2xl">
           {/* Put your existing page content here, or delete this block */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-white/90">
             <h2 className="text-2xl font-bold">{title}</h2>
@@ -269,7 +269,7 @@ const TurfRightPanel: React.FC<{
         </div>
 
         {/* RIGHT: 3D panel (NOT full page) */}
-        <div className="w-[520px] max-w-full rounded-2xl overflow-hidden border border-white/10 bg-black/30 shadow-2xl">
+        <div className="w-[720px] max-w-full rounded-2xl overflow-hidden border border-white/10 bg-black/30 shadow-2xl">
           <div className="h-[520px] w-full">
             <Canvas shadows dpr={[1, 2]}>
               <TurfScene />
