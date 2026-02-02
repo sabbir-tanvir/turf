@@ -1,86 +1,108 @@
-import HeroHeading from "./HeroHeading";
-
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden bg-[#0e1410] text-white">
-      <div className="absolute inset-0">
-        <div className="absolute -left-24 top-0 h-full w-[60%] -skew-x-[14deg] bg-[linear-gradient(135deg,_#0f0f0f_0%,_#151515_55%,_#2a2a2a_100%)] opacity-95" />
-        <div className="absolute left-[32%] top-0 h-full w-[28%] -skew-x-[14deg] bg-[linear-gradient(135deg,_#0f1e2b_0%,_#1f3c4d_60%,_#385b6c_100%)] opacity-90" />
-        <div className="absolute left-[56%] top-0 h-full w-[40%] -skew-x-[14deg] bg-[linear-gradient(135deg,_#0e0d0b_0%,_#2a1f17_55%,_#3b2b1d_100%)] opacity-95" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,_rgba(0,0,0,0.7),_transparent_35%,_transparent_70%,_rgba(0,0,0,0.65))]" />
+    <section
+      id="home"
+      className="relative isolate overflow-hidden bg-slate-950 pt-28 text-white"
+    >
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(60rem_40rem_at_50%_-10%,rgba(16,185,129,0.35),transparent_70%)]" />
+        <div className="absolute -top-40 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl" />
+        <div className="absolute -bottom-40 right-[-10rem] h-[32rem] w-[32rem] rounded-full bg-sky-500/15 blur-3xl" />
+
+        {/* Subtle grid */}
+        <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:72px_72px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,transparent_0,rgba(2,6,23,0.35)_45%,rgba(2,6,23,0.9)_100%)]" />
       </div>
 
-      <div className="relative border-b border-[#1f2a1f] bg-[#195f2f]">
-        <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
-          <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[#d6e8d5]">
-            Turf Nation
-          </div>
-          <div className="relative">
-            <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#7dd67a] bg-[#1c3a1d] shadow-[0_0_30px_rgba(125,214,122,0.5)]" />
-            <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-[#9be29a] bg-[#143015] text-center text-xs font-semibold uppercase tracking-[0.2em]">
-              Turf
-              <br />
-              Nation
+      <div className="container mx-auto  px-6">
+        <div className="flex min-h-[calc(100vh-7rem)] items-center py-12 sm:py-16">
+          <div className="grid w-full items-center justify-center gap-12 lg:grid-cols-2">
+            <div className="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:text-left">
+              <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-6xl">
+                Book a turf that fits your schedule.
+              </h1>
+              <p className="mt-4 text-pretty text-base text-white/70 sm:text-lg">
+                Pick your date and time, check availability, and lock it in.
+              </p>
+
+              <div className="mt-10">
+                <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-2 backdrop-blur-xl">
+                  <form className="grid gap-4 rounded-[1.35rem] bg-white/[0.03] p-4 sm:grid-cols-4 sm:items-end sm:p-5">
+                    <label className="grid gap-2 text-left">
+                      <span className="text-xs font-medium tracking-wide text-white/70">
+                        Date
+                      </span>
+                      <input
+                        type="date"
+                        className="h-11 w-full rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-sm text-white outline-none transition [color-scheme:dark] focus:border-emerald-400/50 focus:ring-4 focus:ring-emerald-400/15"
+                      />
+                    </label>
+
+                    <label className="grid gap-2 text-left">
+                      <span className="text-xs font-medium tracking-wide text-white/70">
+                        Start time
+                      </span>
+                      <input
+                        type="time"
+                        className="h-11 w-full rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-sm text-white outline-none transition [color-scheme:dark] focus:border-emerald-400/50 focus:ring-4 focus:ring-emerald-400/15"
+                      />
+                    </label>
+
+                    <label className="grid gap-2 text-left">
+                      <span className="text-xs font-medium tracking-wide text-white/70">
+                        Duration
+                      </span>
+                      <select className="h-11 w-full appearance-none rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-sm text-white outline-none transition [color-scheme:dark] focus:border-emerald-400/50 focus:ring-4 focus:ring-emerald-400/15">
+                        <option className="bg-slate-950" value="60">
+                          60 minutes
+                        </option>
+                        <option className="bg-slate-950" value="90">
+                          90 minutes
+                        </option>
+                        <option className="bg-slate-950" value="120">
+                          120 minutes
+                        </option>
+                      </select>
+                    </label>
+
+                    <button
+                      type="button"
+                      className="h-11 rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-300 px-5 text-sm font-semibold text-slate-950 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] transition hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-emerald-400/25"
+                    >
+                      Check availability
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            {/* Right-side visual: turf field preview */}
+            <div className="mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-2 backdrop-blur-xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-gradient-to-br from-emerald-600/40 via-emerald-500/25 to-slate-950">
+                  {/* Pitch stripes */}
+                  <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,rgba(255,255,255,0.10)_0,rgba(255,255,255,0.10)_1px,transparent_1px,transparent_72px)] [background-size:72px_100%]" />
+                  <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_bottom,rgba(255,255,255,0.08)_0,rgba(255,255,255,0.08)_1px,transparent_1px,transparent_56px)] [background-size:100%_56px]" />
+
+                  {/* Field lines */}
+                  <div className="absolute inset-8 rounded-2xl border border-white/20" />
+                  <div className="absolute left-1/2 top-8 bottom-8 w-px -translate-x-1/2 bg-white/20" />
+                  <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20" />
+                  <div className="absolute left-8 top-1/2 h-24 w-32 -translate-y-1/2 rounded-xl border border-white/20" />
+                  <div className="absolute right-8 top-1/2 h-24 w-32 -translate-y-1/2 rounded-xl border border-white/20" />
+
+                  {/* Glow + vignette */}
+                  <div className="absolute -top-20 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-emerald-300/20 blur-3xl" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.10),transparent_55%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(56,189,248,0.12),transparent_55%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0,rgba(2,6,23,0.45)_55%,rgba(2,6,23,0.85)_100%)]" />
+                </div>
+              </div>
             </div>
           </div>
-          <button className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-white">
-            Menu
-            <span className="flex flex-col gap-1">
-              <span className="h-[2px] w-5 bg-white" />
-              <span className="h-[2px] w-5 bg-white" />
-            </span>
-          </button>
-        </header>
-      </div>
-
-      <section className="relative mx-auto flex min-h-[520px] w-full max-w-6xl items-center justify-end px-6 pb-24 pt-14">
-        <div className="absolute left-8 top-1/2 hidden h-[320px] w-[520px] -translate-y-1/2 md:block">
-          <p className="rotate-[-70deg] text-4xl font-[var(--font-display)] uppercase tracking-[0.25em] text-white/80">
-            Football
-          </p>
-          <p className="absolute right-0 top-12 rotate-[-70deg] text-xl font-[var(--font-display)] uppercase tracking-[0.35em] text-white/70">
-            Billiard
-          </p>
-          <p className="absolute -bottom-10 left-6 rotate-[-70deg] text-xl font-[var(--font-display)] uppercase tracking-[0.35em] text-white/60">
-            Cricket
-          </p>
-        </div>
-
-        <HeroHeading />
-      </section>
-
-      <div className="relative z-10 mx-auto w-full max-w-4xl px-6 pb-16">
-        <div className="rounded-[22px] border-2 border-[#f06620] bg-white p-4 shadow-[0_18px_50px_rgba(0,0,0,0.45)]">
-          <form className="grid gap-4 md:grid-cols-[1.1fr_1.1fr_auto]">
-            <label className="flex items-center gap-3 rounded-2xl border border-[#e6e6e6] bg-white px-4 py-3 text-sm font-semibold text-[#1a1a1a]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d9d9d9] text-base">
-                ⚽
-              </span>
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#6e6e6e]">
-                  What are you playing?
-                </p>
-                <p className="text-base font-semibold">Pick a game</p>
-              </div>
-            </label>
-            <label className="flex items-center gap-3 rounded-2xl border border-[#e6e6e6] bg-white px-4 py-3 text-sm font-semibold text-[#1a1a1a]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d9d9d9] text-base">
-                📅
-              </span>
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#6e6e6e]">
-                  When are you playing?
-                </p>
-                <p className="text-base font-semibold">Pick a date</p>
-              </div>
-            </label>
-            <button className="flex h-full items-center justify-center gap-2 rounded-2xl bg-[#1b6b35] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_20px_rgba(27,107,53,0.35)]">
-              <span className="text-lg">🔍</span>
-              Search
-            </button>
-          </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
