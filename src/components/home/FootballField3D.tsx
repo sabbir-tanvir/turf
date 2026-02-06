@@ -172,9 +172,14 @@ const FloodLightTower: React.FC<{
 const Grass: React.FC<{ width: number; length: number }> = ({ width, length }) => {
   const meshRef = useRef<THREE.InstancedMesh>(null)
   const count = 150000 // Substantial density for realistic look
+  const initializedRef = useRef(false)
 
   useEffect(() => {
     if (!meshRef.current) return
+    
+    // Check if already initialized to prevent duplicate work
+    if (initializedRef.current && meshRef.current.instanceMatrix.count === count) return
+    
     const dummy = new THREE.Object3D()
     const color = new THREE.Color()
 
@@ -217,6 +222,7 @@ const Grass: React.FC<{ width: number; length: number }> = ({ width, length }) =
 
     meshRef.current.instanceMatrix.needsUpdate = true
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true
+    initializedRef.current = true
   }, [width, length, count])
 
   // Simple plane with origin translated to the bottom edge
@@ -337,7 +343,7 @@ const TurfScene: React.FC<{ zoomEnabled?: boolean }> = ({ zoomEnabled = false })
 
   return (
     <>
-      <color attach="background" args={['#050812']} />
+      <color attach="background" args={['#020617']} />
       <PerspectiveCamera makeDefault position={[12, 12, 14]} fov={45} />
 
       <OrbitControls
@@ -418,8 +424,8 @@ const TurfRightPanel: React.FC<{
   }, [])
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-black font-sans">
-      <div className="h-full w-full">
+    <div className="relative h-screen w-screen overflow-hidden  bg-slate-950 font-sans">
+      <div className="h-full w-full ">
         {/* Anti-aliasing and pixel ratio adjusted for quality */}
         <Canvas shadows dpr={[1, 2]}>
           <TurfScene zoomEnabled={ctrlPressed} />
