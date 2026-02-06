@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo, useRef } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei'
@@ -201,7 +201,7 @@ const MiniTurf: React.FC = () => {
 /* =========================
    Scene (lights + turf)
 ========================= */
-const TurfScene: React.FC = () => {
+const TurfScene: React.FC<{ zoomEnabled?: boolean }> = ({ zoomEnabled = false }) => {
   // Aim at center-ish
   const aim: Vec3 = [0, 0.2, 0]
 
@@ -213,10 +213,10 @@ const TurfScene: React.FC = () => {
       {/* Camera */}
       <PerspectiveCamera makeDefault position={[14, 10.5, 14]} fov={40} />
 
-      {/* Controls (limited + smooth) */}
+      {/* Controls (limited + smooth) — zoom only when canvas is clicked */}
       <OrbitControls
         enablePan={false}
-        enableZoom={true}
+        enableZoom={zoomEnabled}
         minDistance={14}
         maxDistance={26}
         maxPolarAngle={Math.PI / 2.1}
@@ -245,54 +245,56 @@ const TurfScene: React.FC = () => {
 }
 
 /* =========================
-   Right-side Panel Layout
+   Full Screen Layout
 ========================= */
 const TurfRightPanel: React.FC<{
   title?: string
   subtitle?: string
-}> = ({ title = 'Turf Preview', subtitle = 'Interactive 3D mini turf (right panel)' }) => {
+}> = ({ title = 'Turf Preview', subtitle = 'Interactive 3D mini turf (full screen)' }) => {
+  const [ctrlPressed, setCtrlPressed] = useState(false)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey || e.metaKey) {
+        setCtrlPressed(true)
+      }
+    }
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (!e.ctrlKey && !e.metaKey) {
+        setCtrlPressed(false)
+      }
+    }
+
+    const handleBlur = () => {
+      setCtrlPressed(false)
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('keyup', handleKeyUp)
+    window.addEventListener('blur', handleBlur)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('keyup', handleKeyUp)
+      window.removeEventListener('blur', handleBlur)
+    }
+  }, [])
+
   return (
-    <div className=" container mx-auto px-6 py-12">
-      {/* Two-column layout: content left, 3D preview right */}
-      <div className="flex w-full gap-6 space-between ">
-        {/* LEFT: Your page content */}
-        <div className="flex-1 max-w-2xl">
-          {/* Put your existing page content here, or delete this block */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-white/90">
-            <h2 className="text-2xl font-bold">{title}</h2>
-            <p className="mt-2 text-white/70">{subtitle}</p>
-
-            <div className="mt-5 text-white/70 leading-relaxed">
-              Add your booking details / pricing / CTA on the left. The 3D stays on the right.
-            </div>
-          </div>
-        </div>
-
-        {/* RIGHT: 3D panel (NOT full page) */}
-        <div className="w-[720px] max-w-full rounded-2xl overflow-hidden border border-white/10 bg-black/30 shadow-2xl">
-          <div className="h-[520px] w-full">
-            <Canvas shadows dpr={[1, 2]}>
-              <TurfScene />
-            </Canvas>
-          </div>
-
-          {/* Small footer label (optional) */}
-          <div className="px-4 py-3 bg-white/5 text-white/70 text-sm">
-            Drag to rotate • Scroll to zoom
-          </div>
-        </div>
+    <div className="relative h-screen w-screen overflow-hidden bg-black">
+      {/* Full screen 3D Canvas */}
+      <div className="h-full w-full">
+        <Canvas shadows dpr={[1, 2]}>
+          <TurfScene zoomEnabled={ctrlPressed} />
+        </Canvas>
       </div>
 
-      {/* Mobile: stack */}
-      <div className="mt-6 block lg:hidden">
-        <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/30 shadow-2xl">
-          <div className="h-[360px] w-full">
-            <Canvas shadows dpr={[1, 2]}>
-              <TurfScene />
-            </Canvas>
-          </div>
-          <div className="px-4 py-3 bg-white/5 text-white/70 text-sm">Drag to rotate • Scroll to zoom</div>
-        </div>
+      {/* Controls label (positioned at bottom) */}
+      <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-black/60 to-transparent text-white/80 text-sm text-center pointer-events-none">
+        {ctrlPressed
+          ? 'Drag to rotate • Ctrl + Scroll to zoom (active)'
+          : 'Drag to rotate • Hold Ctrl + Scroll to zoom'}
       </div>
     </div>
   )
