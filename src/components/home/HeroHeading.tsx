@@ -11,7 +11,7 @@ export default function HeroHeading() {
       <div className="mt-6 flex items-center justify-end gap-3">
         <span className="h-[2px] w-12 bg-white/70" />
         <span className="text-xs uppercase tracking-[0.4em] text-white/70">
-          Bookings open
+          Bookings open soon
         </span>
       </div>
     </div>
