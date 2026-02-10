@@ -70,7 +70,7 @@ export default function Hero() {
                       type="button"
                       className="h-11 rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-300 px-5 text-sm font-semibold text-slate-950 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] transition hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-emerald-400/25"
                     >
-                      Check availability
+                      Check for availability
                     </button>
                   </form>
                 </div>
