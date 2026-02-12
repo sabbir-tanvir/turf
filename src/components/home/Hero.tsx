@@ -81,7 +81,7 @@ export default function Hero() {
             <div className="mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
               <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-2 backdrop-blur-xl">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-gradient-to-br from-emerald-600/40 via-emerald-500/25 to-slate-950">
-                  {/* Pitch stripes ddddd */}
+                  {/* Pitch stripes ddddd ddddd */}
                   <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,rgba(255,255,255,0.10)_0,rgba(255,255,255,0.10)_1px,transparent_1px,transparent_72px)] [background-size:72px_100%]" />
                   <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_bottom,rgba(255,255,255,0.08)_0,rgba(255,255,255,0.08)_1px,transparent_1px,transparent_56px)] [background-size:100%_56px]" />
 
