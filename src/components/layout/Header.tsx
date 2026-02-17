@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const NAV_ITEMS = ["Home", "Turfs", "About", "Contact"] as const;
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,16 +46,34 @@ export default function Header() {
 
             {/* Desktop Nav */}
             <nav className="hidden items-center gap-7 md:flex">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="group relative text-sm font-semibold text-white/75 transition-colors hover:text-white"
-                >
-                  {item}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-emerald-300 to-sky-300 transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
+              <Link
+                href="/"
+                className="group relative text-sm font-semibold text-white/75 transition-colors hover:text-white"
+              >
+                Home
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-emerald-300 to-sky-300 transition-all duration-300 group-hover:w-full" />
+              </Link>
+              <Link
+                href="/turfs"
+                className="group relative text-sm font-semibold text-white/75 transition-colors hover:text-white"
+              >
+                Turfs
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-emerald-300 to-sky-300 transition-all duration-300 group-hover:w-full" />
+              </Link>
+              <Link
+                href="/about"
+                className="group relative text-sm font-semibold text-white/75 transition-colors hover:text-white"
+              >
+                About
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-emerald-300 to-sky-300 transition-all duration-300 group-hover:w-full" />
+              </Link>
+              <Link
+                href="#contact"
+                className="group relative text-sm font-semibold text-white/75 transition-colors hover:text-white"
+              >
+                Contact
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-emerald-300 to-sky-300 transition-all duration-300 group-hover:w-full" />
+              </Link>
             </nav>
 
             {/* Desktop Auth */}
@@ -106,16 +122,34 @@ export default function Header() {
             }`}
           >
             <nav className="space-y-2 px-4 pb-4">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/[0.07] hover:text-white"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item}
-                </Link>
-              ))}
+              <Link
+                href="/"
+                className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/[0.07] hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/turfs"
+                className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/[0.07] hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Turfs
+              </Link>
+              <Link
+                href="/about"
+                className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/[0.07] hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="#contact"
+                className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/[0.07] hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <Link
                   href="/login"
