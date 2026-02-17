@@ -10,6 +10,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* User requested palette */
+  --color-palette-dark: #B6AE9F;
+  --color-palette-sub: #C5C7BC;
+  --color-palette-light: #DEDED1;
+  --color-palette-cream: #FBF3D1;
 }
 
 @media (prefers-color-scheme: dark) {

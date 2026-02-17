@@ -68,7 +68,7 @@ export default function Header() {
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-emerald-300 to-sky-300 transition-all duration-300 group-hover:w-full" />
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="group relative text-sm font-semibold text-white/75 transition-colors hover:text-white"
               >
                 Contact
@@ -144,7 +144,7 @@ export default function Header() {
                 About
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/[0.07] hover:text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
