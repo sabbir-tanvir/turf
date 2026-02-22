@@ -42,14 +42,14 @@ const TURFS = [
 
 export default function TurfsSection() {
   return (
-    <section id="turfs" className="bg-gradient-to-br from-palette-light via-palette-cream to-palette-light py-24">
+    <section id="turfs" className="bg-palette-moss-dark py-24">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-stone-800 sm:text-5xl">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Our Premium Turfs
           </h2>
-          <p className="mt-4 text-lg text-stone-600">
+          <p className="mt-4 text-lg text-palette-gray">
             Choose from our selection of world-class turf facilities
           </p>
         </div>
@@ -59,13 +59,13 @@ export default function TurfsSection() {
           {TURFS.map((turf) => (
             <div
               key={turf.id}
-              className="group relative overflow-hidden rounded-2xl border border-palette-sub bg-white shadow-md shadow-stone-900/5 transition hover:border-palette-dark hover:shadow-lg hover:shadow-stone-900/10"
+              className="group relative overflow-hidden rounded-2xl border border-palette-moss bg-white shadow-md shadow-stone-900/5 transition hover:border-palette-moss-dark hover:shadow-lg hover:shadow-stone-900/10"
             >
               {/* Image placeholder */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-palette-sub/60 via-palette-light to-palette-cream">
+              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-palette-green/60 via-palette-moss to-palette-gray">
                 <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(to_right,rgba(0,0,0,0.08)_0,rgba(0,0,0,0.08)_1px,transparent_1px,transparent_48px)] [background-size:48px_100%]" />
-                <div className="absolute inset-4 rounded-xl border border-palette-dark/20" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0,rgba(251,243,209,0.25)_55%,rgba(251,243,209,0.50)_100%)]" />
+                <div className="absolute inset-4 rounded-xl border border-palette-moss-dark/20" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0,rgba(106,115,55,0.25)_55%,rgba(106,115,55,0.50)_100%)]" />
               </div>
 
               {/* Content */}
@@ -74,7 +74,7 @@ export default function TurfsSection() {
                   <h3 className="text-lg font-semibold text-stone-800">
                     {turf.name}
                   </h3>
-                  <span className="rounded-lg bg-palette-dark/10 px-2 py-1 text-xs font-semibold text-palette-dark">
+                  <span className="rounded-lg bg-palette-moss-dark/10 px-2 py-1 text-xs font-semibold text-palette-moss-dark">
                     {turf.size}
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export default function TurfsSection() {
                   {turf.features.map((feature) => (
                     <span
                       key={feature}
-                      className="rounded-full border border-palette-sub bg-palette-cream/50 px-2 py-1 text-xs text-stone-600"
+                      className="rounded-full border border-palette-moss bg-palette-gray/50 px-2 py-1 text-xs text-stone-600"
                     >
                       {feature}
                     </span>
@@ -103,7 +103,7 @@ export default function TurfsSection() {
                   </div>
                   <Link
                     href={`/turfs/${turf.id}`}
-                    className="inline-flex items-center justify-center rounded-xl bg-palette-dark px-4 py-2 text-sm font-semibold text-white shadow-md shadow-stone-900/10 transition hover:bg-stone-700"
+                    className="inline-flex items-center justify-center rounded-xl bg-palette-moss-dark px-4 py-2 text-sm font-semibold text-white shadow-md shadow-stone-900/10 transition hover:bg-palette-brown"
                   >
                     Book Now
                   </Link>
@@ -117,7 +117,7 @@ export default function TurfsSection() {
         <div className="mt-12 text-center">
           <Link
             href="/turfs"
-            className="inline-flex items-center justify-center rounded-xl border border-palette-sub bg-white px-6 py-3 text-sm font-semibold text-stone-800 shadow-sm shadow-stone-900/5 transition hover:bg-palette-cream hover:border-palette-dark"
+            className="inline-flex items-center justify-center rounded-xl border border-palette-moss bg-white px-6 py-3 text-sm font-semibold text-stone-800 shadow-sm shadow-stone-900/5 transition hover:bg-palette-gray hover:border-palette-moss-dark"
           >
             View All Turfs
           </Link>

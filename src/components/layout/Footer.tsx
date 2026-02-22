@@ -2,22 +2,22 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-stone-700 bg-stone-800">
+    <footer className="border-t border-palette-moss-dark bg-palette-brown">
       <div className="container mx-auto px-6 py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Section */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-palette-cream shadow-sm">
-                <span className="text-base font-bold tracking-wide text-stone-800">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-palette-gray shadow-sm">
+                <span className="text-base font-bold tracking-wide text-palette-brown">
                   TN
                 </span>
               </div>
               <div className="text-lg font-semibold tracking-tight text-white">
-                Turf <span className="text-stone-300">Nation</span>
+                Turf <span className="text-palette-gray">Nation</span>
               </div>
             </Link>
-            <p className="text-sm text-stone-400 leading-relaxed">
+            <p className="text-sm text-palette-gray leading-relaxed">
               Book premium turf spaces for your football matches. Play, compete, and enjoy the game.
             </p>
           </div>
@@ -37,7 +37,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-stone-400 transition-colors duration-200 hover:text-white hover:underline underline-offset-4"
+                    className="text-sm text-palette-gray transition-colors duration-200 hover:text-white hover:underline underline-offset-4"
                   >
                     {link.label}
                   </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-stone-400 transition-colors duration-200 hover:text-white hover:underline underline-offset-4"
+                    className="text-sm text-palette-gray transition-colors duration-200 hover:text-white hover:underline underline-offset-4"
                   >
                     {link.label}
                   </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:info@turfnation.com"
-                  className="text-sm text-stone-400 transition-colors duration-200 hover:text-white"
+                  className="text-sm text-palette-gray transition-colors duration-200 hover:text-white"
                 >
                   info@turfnation.com
                 </a>
@@ -87,7 +87,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+1234567890"
-                  className="text-sm text-stone-400 transition-colors duration-200 hover:text-white"
+                  className="text-sm text-palette-gray transition-colors duration-200 hover:text-white"
                 >
                   +1 (234) 567-890
                 </a>
@@ -111,7 +111,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-stone-700 text-stone-400 transition-all duration-200 hover:bg-palette-dark hover:text-white hover:scale-110"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-palette-moss-dark text-palette-gray transition-all duration-200 hover:bg-palette-green hover:text-white hover:scale-110"
                   aria-label={social.label}
                 >
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-stone-700 pt-8 text-sm text-stone-400 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-palette-moss-dark pt-8 text-sm text-palette-gray sm:flex-row">
           <p>© 2026 Turf Nation. All rights reserved.</p>
           <div className="flex items-center gap-6">
             {[
